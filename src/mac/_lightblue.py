@@ -475,6 +475,13 @@ class _AsyncPair(Foundation.NSObject):
     devicePairingFinished_error_ = objc.selector(
         devicePairingFinished_error_, signature="v@:@i")
 
+    # - (void) deviceSimplePairingComplete:(id)sender
+    #                               status:(BluetoothHCIEventStatus)status
+    def deviceSimplePairingComplete_status_(self, sender, status):
+        print "deviceSimplePairingComplete_status_: %u" % status
+    deviceSimplePairingComplete_status_ = objc.selector(
+        deviceSimplePairingComplete_status_, signature="v@:@C")
+
 # Wrapper around IOBluetoothDeviceInquiry, with python callbacks that you can
 # set to receive callbacks when the inquiry is started or stopped, or when it
 # finds a device.
